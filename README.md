@@ -1,5 +1,7 @@
 # TD1 — EU capitals sustainable vacation dashboard
 > **[dashboard is live](https://business-intelligence-26.github.io/eu-capitals-dashboard/)**
+
+
 *Student manual. This is the same technical build as
 `TD_1_DELIVERY_MANUAL_eu_capitals_dashboard.md`, reorganized around the stages of a
 BI pipeline instead of raw click order, with the reasoning kept in and the
