@@ -1,7 +1,7 @@
 import csv, json, math, time
 import requests
 
-PARIS_LAT, PARIS_LON = 48.8566, 2.3522
+#PARIS_LAT, PARIS_LON = 48.8566, 2.3522
 LEMANS_LAT, LEMANS_LON = 48.008224, 0.209856
 EMISSIONS_FACTOR_KG_PER_KM = 0.15  # DEFRA-style short-haul factor -- verify/update
 
@@ -54,7 +54,7 @@ def main():
     with open("data/capitals.csv") as f:
         rows = list(csv.DictReader(f))
 
-    #dest_rows = [row for row in rows if row["capital"] != "Paris"]#
+    #dest_rows = [row for row in rows if row["capital"] != "Paris"]
     dest_rows = rows
     lats = [float(row["lat"]) for row in dest_rows]
     lons = [float(row["lon"]) for row in dest_rows]
