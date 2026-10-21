@@ -2,6 +2,7 @@ import csv, json, math, time
 import requests
 
 PARIS_LAT, PARIS_LON = 48.8566, 2.3522
+LEMANS_LAT, LEMANS_LON = 48.008224, 0.209856
 EMISSIONS_FACTOR_KG_PER_KM = 0.15  # DEFRA-style short-haul factor -- verify/update
 
 def haversine_km(lat1, lon1, lat2, lon2):
@@ -53,7 +54,8 @@ def main():
     with open("data/capitals.csv") as f:
         rows = list(csv.DictReader(f))
 
-    dest_rows = [row for row in rows if row["capital"] != "Paris"]
+    #dest_rows = [row for row in rows if row["capital"] != "Paris"]#
+    dest_rows = rows
     lats = [float(row["lat"]) for row in dest_rows]
     lons = [float(row["lon"]) for row in dest_rows]
 
@@ -68,7 +70,7 @@ def main():
 
     destinations = []
     for row, lat, lon, wx in zip(dest_rows, lats, lons, weather):
-        distance_km = haversine_km(PARIS_LAT, PARIS_LON, lat, lon)
+        distance_km = haversine_km(LEMANS_LAT, LEMANS_LON, lat, lon)
         daily = wx["daily"]
         avg_temp = sum(daily["temperature_2m_max"]) / len(daily["temperature_2m_max"])
         total_precip = sum(daily["precipitation_sum"])
